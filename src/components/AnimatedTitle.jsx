@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import clsx from "clsx";
 
@@ -53,5 +54,10 @@ const AnimatedTitle = ({ title, containerClass }) => {
     </div>
   );
 };
+
+AnimatedTitle.propTypes = {
+  title: PropTypes.string,
+  containerClass: PropTypes.string,
+}
 
 export default AnimatedTitle;
