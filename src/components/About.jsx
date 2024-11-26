@@ -1,12 +1,12 @@
-import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import AnimatedTitle from "./AnimatedTitle.jsx";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
 
-gsap.registerPlugin(ScrollTrigger)
+import AnimatedTitle from "./AnimatedTitle";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-
   useGSAP(() => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
@@ -15,25 +15,29 @@ const About = () => {
         end: "+=800 center",
         scrub: 0.5,
         pin: true,
-        pinSpacing: true
+        pinSpacing: true,
       },
-    })
+    });
 
-    clipAnimation.to('.mask-clip-path', {
-      width: '100vw',
-      height: '100vh',
+    clipAnimation.to(".mask-clip-path", {
+      width: "100vw",
+      height: "100vh",
       borderRadius: 0,
-    })
-  })
+    });
+  });
 
   return (
-    <div id="#about" className="min-h-screen w-screen">
+    <div id="about" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
-        <h2 className="font-general text-sm uppercase md:text-[10px]">
+        <p className="font-general text-sm uppercase md:text-[10px]">
           Welcome to Zentry
-        </h2>
-        <AnimatedTitle title="Disc<b>o</b>ver the world&#39;s <br/> largest shared <b>a</b>dventure"
-                       containerClass="mt-5 !text-black text-center"/>
+        </p>
+
+        <AnimatedTitle
+          title="Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure"
+          containerClass="mt-5 !text-black text-center"
+        />
+
         <div className="about-subtext">
           <p>The Game of Games begins—your life, now an epic MMORPG</p>
           <p className="text-gray-500">
@@ -42,8 +46,8 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="h-dvh w-screen"
-           id="clip">
+
+      <div className="h-dvh w-screen" id="clip">
         <div className="mask-clip-path about-image">
           <img
             src="img/about.webp"
@@ -53,6 +57,7 @@ const About = () => {
         </div>
       </div>
     </div>
-  )
-}
-export default About
+  );
+};
+
+export default About;
