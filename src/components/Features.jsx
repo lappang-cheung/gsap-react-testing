@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import PropTypes from "prop-types";
 
 export const BentoTilt = ({ children, className = "" }) => {
   const [transformStyle, setTransformStyle] = useState("");
@@ -37,6 +38,11 @@ export const BentoTilt = ({ children, className = "" }) => {
     </div>
   );
 };
+
+BentoTilt.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+}
 
 export const BentoCard = ({ src, title, description, isComingSoon }) => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -97,6 +103,13 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
     </div>
   );
 };
+
+BentoCard.propTypes = {
+  src: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
+  description: PropTypes.string,
+  isComingSoon: PropTypes.bool,
+}
 
 const Features = () => (
   <section className="bg-black pb-52">
